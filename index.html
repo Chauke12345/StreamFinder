@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movie Explorer App</title>
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>🎬 Movie Explorer</h1>
+
+    <!-- SEARCH -->
+    <div class="search-box">
+      <input type="text" id="movieInput" placeholder="Search for a movie..." />
+      <button id="searchBtn" type="button">Search</button>
+    </div>
+    <h2>Search Results</h2>
+<div class="movie-row">
+  <div class="movie-track" id="searchRow"></div>
+</div>
+
+    <p id="message"></p>
+
+    <!-- NETFLIX STYLE ROW -->
+    <h2>Trending</h2>
+<div class="movie-row">
+  <button class="scroll-btn left" onclick="scrollRow(this, -1)">‹</button>
+  <div class="movie-track" id="trendingRow"></div>
+  <button class="scroll-btn right" onclick="scrollRow(this, 1)">›</button>
+</div>
+
+<h2>Action</h2>
+<div class="movie-row">
+  <button class="scroll-btn left" onclick="scrollRow(this, -1)">‹</button>
+  <div class="movie-track" id="actionRow"></div>
+  <button class="scroll-btn right" onclick="scrollRow(this, 1)">›</button>
+</div>
+
+<h2>Comedy</h2>
+<div class="movie-row">
+  <button class="scroll-btn left" onclick="scrollRow(this, -1)">‹</button>
+  <div class="movie-track" id="comedyRow"></div>
+  <button class="scroll-btn right" onclick="scrollRow(this, 1)">›</button>
+</div>
+
+<h2>Crime</h2>
+<div class="movie-row">
+  <button class="scroll-btn left" onclick="scrollRow(this, -1)">‹</button>
+  <div class="movie-track" id="crimeRow"></div>
+  <button class="scroll-btn right" onclick="scrollRow(this, 1)">›</button>
+</div>
+
+<h2>Thriller</h2>
+<div class="movie-row">
+  <button class="scroll-btn left" onclick="scrollRow(this, -1)">‹</button>
+  <div class="movie-track" id="thrillerRow"></div>
+  <button class="scroll-btn right" onclick="scrollRow(this, 1)">›</button>
+</div>
+
+  </div>
+
+  <!-- MODAL -->
+  <div id="movieModal" class="modal hidden">
+
+    <div class="modal-content">
+
+      <button id="closeModal" class="close-btn">✕</button>
+
+      <div id="modalBody"></div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
