@@ -1,108 +1,456 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #0f0f0f;
-    color: white;
-    margin: 0;
-    padding: 20px;
+/* =================================================
+   GLOBAL STYLES
+
+   Controls:
+   - Browser reset
+   - Main page appearance
+   - Default typography
+================================================= */
+
+
+/* GLOBAL RESET */
+
+* {
+
+    box-sizing: border-box;
+
 }
+
+
+
+/* PAGE BODY */
+
+body {
+
+    font-family: "Arial", sans-serif;
+
+    background: #0b0b0b;
+
+    color: #ffffff;
+
+    margin: 0;
+
+    padding: 0;
+
+    min-height:100vh;
+
+}
+
+
+
+/* =================================================
+   MAIN CONTAINER
+
+   Controls:
+   - Maximum content width
+   - Page spacing
+================================================= */
+
 
 .container {
-    max-width: 1200px;
-    margin: auto;
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:20px;
+
 }
+
+
+
+/* =================================================
+   HEADINGS
+
+   Controls:
+   - Main titles
+   - Section titles
+================================================= */
+
 
 h1 {
-    text-align: center;
+
+    text-align:center;
+
+    font-size:3rem;
+
+    margin:20px 0;
+
+    font-weight:700;
+
 }
 
-/* =========================
-   SEARCH AREA
-========================= */
+
+
+h2 {
+
+    font-size:1.8rem;
+
+    margin:40px 0 15px;
+
+    font-weight:600;
+
+}
+/* =================================================
+   SEARCH COMPONENT
+
+   Controls:
+   - Search container layout
+   - Input styling
+   - Placeholder text
+   - Focus animation
+   - Search button
+================================================= */
+
+
+/* SEARCH WRAPPER */
 
 .search-box {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    width:100%;
+
+    max-width:650px;
+
+    margin:30px auto;
+
 }
 
-input {
-    width: 300px;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
+
+
+/* SEARCH INPUT */
+
+.search-box input {
+
+    flex:1;
+
+    padding:15px 20px;
+
+    background:rgba(255,255,255,0.1);
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,0.2);
+
+    border-radius:30px;
+
+    font-size:16px;
+
+    outline:none;
+
+    transition:.3s;
+
 }
+
+
+
+/* INPUT PLACEHOLDER */
+
+.search-box input::placeholder {
+
+    color:#aaa;
+
+}
+
+
+
+/* INPUT ACTIVE STATE */
+
+.search-box input:focus {
+
+    border-color:#ff3b3b;
+
+    background:rgba(255,255,255,0.15);
+
+}
+
+
+
+/* =================================================
+   GLOBAL BUTTON STYLE
+
+   Controls:
+   - Search button
+   - Other default buttons
+================================================= */
+
 
 button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    background: #ff3b3b;
-    color: white;
+
+    padding:14px 25px;
+
+    border:none;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    background:#e50914;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
 }
 
-/* =========================
+
+
+/* BUTTON HOVER */
+
+button:hover {
+
+    background:#ff1f2d;
+
+    transform:translateY(-2px);
+
+}/* =========================
    MESSAGE
 ========================= */
 
 #message {
-    text-align: center;
-    margin-top: 10px;
-    color: #ccc;
+
+    text-align:center;
+    margin:15px 0;
+
+    color:#bdbdbd;
+
+    font-size:15px;
+
 }
 
+
 /* =========================
-   MOVIE GRID
+   MOVIE ROWS / CAROUSELS
 ========================= */
 
 .movie-row {
-  position: relative;
-  overflow: hidden;
-  margin-top: 15px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    margin-top:20px;
+
 }
+
 
 .movie-track {
-  display: flex;
-  gap: 15px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 10px;
+
+    display:flex;
+
+    gap:18px;
+
+    overflow-x:auto;
+
+    scroll-behavior:smooth;
+
+    padding:15px 5px;
+
+    width:100%;
+
+    scrollbar-width:none;
+
 }
 
-/* hide scrollbar */
+
 .movie-track::-webkit-scrollbar {
-  display: none;
+
+    display:none;
+
 }
+
+
+/* =========================
+   MOVIE CARD
+========================= */
 
 .movie-card {
-  min-width: 180px;
-  flex: 0 0 auto;
-  background: #1c1c1c;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    width:190px;
+
+    min-width:190px;
+
+    flex:0 0 190px;
+
+    background:#181818;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+
 }
 
+
 .movie-card:hover {
-  transform: scale(1.06);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+
+    transform:
+    translateY(-10px)
+    scale(1.04);
+
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.6);
+
 }
+
+
+/* POSTER */
+
+.movie-card img {
+
+    width:100%;
+
+    height:280px;
+
+    object-fit:cover;
+
+}
+
+
+/* INFO */
+
+.movie-info {
+
+    padding:15px;
+
+    text-align:center;
+
+}
+
+
+.movie-info h3 {
+
+    font-size:16px;
+
+    margin:10px 0;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+
+/* RATING */
+
+.movie-rating {
+
+    color:#ffd700;
+
+    font-weight:bold;
+
+    font-size:14px;
+
+}
+
+
+.movie-year {
+
+    color:#aaa;
+
+    font-size:13px;
+
+}
+
+
+.movie-genre {
+
+    color:#bbb;
+
+    font-size:13px;
+
+}
+
+
+/* FAVORITE */
+
+.favorite-btn {
+
+    width:100%;
+
+    margin-top:10px;
+
+    padding:8px;
+
+    border-radius:20px;
+
+    background:#e50914;
+
+    color:white;
+
+    border:none;
+
+    cursor:pointer;
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+
+.favorite-btn:hover {
+
+    background:#ff2533;
+
+}
+
 /* =========================
    MODAL BACKDROP
 ========================= */
 
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.85);
+
+    backdrop-filter:blur(8px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:1000;
+
+    padding:20px;
+
+}
+
+
+/* HIDDEN MODAL */
+
+.modal.hidden {
+
+    display:none;
+
 }
 
 /* =========================
@@ -110,145 +458,850 @@ button {
 ========================= */
 
 .modal-content {
-    background: #1c1c1c;
-    padding: 20px;
-    width: 90%;
-    max-width: 700px;
-    max-height: 90vh;
-    overflow-y: auto;
-    border-radius: 10px;
-    position: relative;
+
+    background:#181818;
+
+    width:95%;
+
+    max-width:850px;
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    position:relative;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.7);
+
+    animation:modalOpen .3s ease;
+
 }
 
-/* CLOSE BUTTON */
-#closeModal {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
-    cursor: pointer;
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.modal-close {
+
+    position:absolute;
+
+    top:15px;
+
+    right:20px;
+
+    background:#e50914;
+
+    color:white;
+
+    border:none;
+
+    width:35px;
+
+    height:35px;
+
+    border-radius:50%;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    z-index:10;
+
+}
+
+
+.modal-close:hover {
+
+    background:#ff2533;
+
+}
+
+
+/* =========================
+   MODAL ANIMATION
+========================= */
+
+@keyframes modalOpen {
+
+    from {
+
+        opacity:0;
+
+        transform:scale(.9);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
 }
 
 /* =========================
-   MODAL LAYOUT
+   CLOSE BUTTON
+========================= */
+
+#closeModal {
+
+    position:absolute;
+
+    top:15px;
+
+    right:20px;
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:#e50914;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.3s;
+
+}
+
+
+#closeModal:hover {
+
+    background:#ff2635;
+
+    transform:rotate(90deg);
+
+}
+
+
+/* =========================
+   MODAL MOVIE LAYOUT
 ========================= */
 
 .movie-modal {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
+
+    display:flex;
+
+    gap:30px;
+
+    align-items:flex-start;
+
 }
 
-/* POSTER */
+
+/* =========================
+   MODAL POSTER
+========================= */
+
 .movie-poster {
-    width: 150px;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 10px;
-    flex-shrink: 0;
-}
 
-/* INFO */
-.movie-info {
-  padding: 10px;
-  text-align: center;
-}
+    width:220px;
 
-.movie-info h3 {
-  font-size: 14px;
-  margin: 5px 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+    height:330px;
 
-.movie-info p {
-  color: gold;
-  margin: 0;
-  font-size: 13px;
+    object-fit:cover;
+
+    border-radius:15px;
+
+    flex-shrink:0;
 
 }
 
-/* DESCRIPTION */
+
+/* =========================
+   MODAL DETAILS
+========================= */
+
+.movie-details {
+
+    flex:1;
+
+}
+
+
+.movie-details h2 {
+
+    font-size:32px;
+
+    margin:0 0 15px;
+
+    color:white;
+
+}
+
+
+/* =========================
+   MODAL META INFO
+========================= */
+
+.modal-rating {
+
+    color:#ffd700;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+    margin-bottom:10px;
+
+}
+
+
+.modal-year {
+
+    color:#aaa;
+
+    margin-bottom:10px;
+
+}
+
+
+.modal-genre {
+
+    color:#bbb;
+
+    margin-bottom:20px;
+
+}
+
+
+/* =========================
+   OVERVIEW TEXT
+========================= */
+
+.movie-overview {
+
+    color:#ddd;
+
+    line-height:1.6;
+
+    font-size:15px;
+
+}
+
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media(max-width:700px){
+
+
+    .movie-modal {
+
+        flex-direction:column;
+
+        align-items:center;
+
+        text-align:center;
+
+    }
+
+
+    .movie-poster {
+
+        width:180px;
+
+        height:270px;
+
+    }
+
+
+    .movie-details h2 {
+
+        font-size:24px;
+
+    }
+
+
+}
+/* =========================
+   DESCRIPTION
+========================= */
+
 .overview {
-    margin-top: 10px;
-    line-height: 1.4;
-    max-height: 250px;
-    overflow-y: auto;
+
+    color:#ddd;
+
+    line-height:1.6;
+
+    margin-top:20px;
+
+    max-height:220px;
+
+    overflow-y:auto;
+
 }
+
 
 /* =========================
    TRAILER BUTTON
 ========================= */
 
 .trailer-btn {
-    margin-top: 10px;
-    padding: 10px;
-    width: 100%;
-    border: none;
-    border-radius: 8px;
-    background: #ff3d00;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
+
+    margin-top:20px;
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:25px;
+
+    background:#e50914;
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
 }
 
+
 .trailer-btn:hover {
-    background: #e63600;
+
+    background:#ff2635;
+
 }
+
 
 /* =========================
    UTILITY
 ========================= */
 
 .hidden {
-    display: none;
+
+    display:none;
+
 }
 
-.movie-card img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 10px;
-}
+
+/* =========================
+   SCROLL BUTTONS
+========================= */
 
 .scroll-btn {
-  position: absolute;
-  top: 40%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.6);
-  color: white;
-  border: none;
-  font-size: 30px;
-  cursor: pointer;
-  z-index: 10;
-  padding: 10px;
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:45px;
+
+    height:70px;
+
+    background:rgba(0,0,0,.65);
+
+    color:white;
+
+    border:none;
+
+    font-size:35px;
+
+    cursor:pointer;
+
+    z-index:10;
+
+    transition:.3s;
+
 }
+
+
+.scroll-btn:hover {
+
+    background:#e50914;
+
+}
+
 
 .scroll-btn.left {
-  left: 0;
+
+    left:5px;
+
 }
+
 
 .scroll-btn.right {
-  right: 0;
+
+    right:5px;
+
 }
+
+
+/* =========================
+   LOADING SKELETON
+========================= */
 
 .skeleton-row {
-  display: flex;
-  gap: 15px;
-  overflow: hidden;
+
+    display:flex;
+
+    gap:18px;
+
+    overflow:hidden;
+
 }
+
 
 .skeleton-card {
-  width: 180px;
-  height: 270px;
-  background: #2a2a2a;
-  border-radius: 10px;
-  animation: pulse 1.2s infinite ease-in-out;
+
+    min-width:190px;
+
+    height:290px;
+
+    background:#222;
+
+    border-radius:15px;
+
+    animation:pulse 1.2s infinite;
+
 }
 
+
 @keyframes pulse {
-  0% { opacity: 0.6; }
-  50% { opacity: 1; }
-  100% { opacity: 0.6; }
+
+    0% {
+
+        opacity:.5;
+
+    }
+
+
+    50% {
+
+        opacity:1;
+
+    }
+
+
+    100% {
+
+        opacity:.5;
+
+    }
+
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+
+    height:420px;
+
+    border-radius:20px;
+
+    background-color:#111;
+
+    background-image:
+    url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba");
+
+    background-size:cover;
+
+    background-position:center;
+
+    overflow:hidden;
+
+    margin-bottom:40px;
+
+}
+
+
+.hero-overlay {
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(0,0,0,.65);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+
+.hero h1 {
+
+    font-size:3rem;
+
+}
+
+
+.hero-text {
+
+    max-width:700px;
+
+    color:#ddd;
+
+    font-size:1.1rem;
+
+    line-height:1.6;
+
+    margin-bottom:30px;
+
+}
+
+
+/* =========================
+   FAVORITE BUTTON
+========================= */
+
+.favorite-btn {
+
+    width:100%;
+
+    padding:10px;
+
+    border:none;
+
+    border-radius:25px;
+
+    background:#e50914;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+
+.favorite-btn:hover {
+
+    background:#ff2635;
+
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+
+    .hero {
+
+        height:350px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:2rem;
+
+    }
+
+
+    .hero-text {
+
+        font-size:1rem;
+
+    }
+
+
+    .scroll-btn {
+
+        width:35px;
+
+        height:55px;
+
+        font-size:25px;
+
+    }
+
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    color:#ffffff;
+
+    user-select:none;
+
+}
+
+.logo-icon{
+
+    font-size:34px;
+
+    filter:drop-shadow(0 0 10px rgba(229,9,20,.7));
+
+}
+
+.logo-text{
+
+    font-size:30px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+}
+
+.finder{
+
+    color:#e50914;
+
+}
+
+/* =========================
+   NAVIGATION MENU
+========================= */
+
+.nav-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+}
+
+.nav-link{
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    position:relative;
+
+}
+
+.nav-link:hover{
+
+    color:#e50914;
+
+}
+
+.nav-link.active{
+
+    color:#e50914;
+
+}
+
+.nav-link.active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:100%;
+
+    height:3px;
+
+    background:#e50914;
+
+    border-radius:10px;
+
+}
+
+/* =========================
+   NAV ACTIONS
+========================= */
+
+.nav-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.search-btn,
+.profile-btn{
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#202020;
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.search-btn:hover,
+.profile-btn:hover{
+
+    background:#e50914;
+
+    transform:scale(1.08);
+
+}
+
+/* =========================
+   LOADING SPINNER
+========================= */
+
+.spinner{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.65);
+
+    backdrop-filter:blur(4px);
+
+    z-index:9999;
+
+}
+
+.loader{
+
+    width:70px;
+
+    height:70px;
+
+    border:6px solid rgba(255,255,255,.25);
+
+    border-top:6px solid #e50914;
+
+    border-radius:50%;
+
+    animation:spin .8s linear infinite;
+
+}
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+.hidden{
+    display:none;
+}
+
+
+.spinner{
+
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+
+    font-size:20px;
+    font-weight:bold;
+
 }

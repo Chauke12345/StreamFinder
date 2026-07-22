@@ -1,83 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Movie Explorer App</title>
 
-  <link rel="stylesheet" href="style.css"/>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stream Finder</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
+
 
 <body>
 
-  <div class="container">
 
-    <h1>🎬 Movie Explorer</h1>
+<div class="container">
 
-    <!-- SEARCH -->
-    <div class="search-box">
-      <input type="text" id="movieInput" placeholder="Search for a movie..." />
-      <button id="searchBtn" type="button">Search</button>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+    <span class="logo-icon">🎬</span>
+
+    <span class="logo-text">
+        Stream<span class="finder">Finder</span>
+    </span>
+
+    <div class="nav-menu">
+
+        <a href="#home" class="nav-link active">
+            Home
+        </a>
+
+        <a href="#movies" class="nav-link">
+            Movies
+        </a>
+
+        <a href="#tv" class="nav-link">
+            TV Shows
+        </a>
+
+        <a href="#genres" class="nav-link">
+            Genres
+        </a>
+
+        <a href="#favorites" class="nav-link">
+            ❤️ Favorites
+        </a>
+
     </div>
-    <h2>Search Results</h2>
-<div class="movie-row">
-  <div class="movie-track" id="searchRow"></div>
+
+    <div class="nav-actions">
+
+
+        <button class="profile-btn">
+            👤
+        </button>
+
+    </div>
+
+</nav>
+<!-- =========================
+ HERO
+========================= -->
+
+
+<section class="hero">
+
+
+<div class="hero-overlay">
+
+
+<h1>
+🎬 Stream Finder
+</h1>
+
+
+
+<p class="hero-text">
+
+Discover thousands of movies, TV shows, and trending entertainment.
+Search your favourite titles and explore what's popular today.
+
+</p>
+
+
+
+
+<div class="search-box">
+
+
+<input
+
+id="movieInput"
+
+type="text"
+
+placeholder="Search for movies..."
+
+>
+
+
+
+
+<button
+
+id="searchBtn"
+
+type="button">
+
+🔍 Search
+
+</button>
+
+
+
 </div>
 
-    <p id="message"></p>
 
-    <!-- NETFLIX STYLE ROW -->
-    <h2>Trending</h2>
-<div class="movie-row">
-  <button class="scroll-btn left" onclick="scrollRow(this, -1)">‹</button>
-  <div class="movie-track" id="trendingRow"></div>
-  <button class="scroll-btn right" onclick="scrollRow(this, 1)">›</button>
 </div>
 
-<h2>Action</h2>
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =========================
+ SEARCH RESULTS
+========================= -->
+
+
+<section class="movie-section">
+
+
+<h2 class="section-title">
+
+Search Results
+
+</h2>
+
+
+<p id="message"></p>
+
+
+
 <div class="movie-row">
-  <button class="scroll-btn left" onclick="scrollRow(this, -1)">‹</button>
-  <div class="movie-track" id="actionRow"></div>
-  <button class="scroll-btn right" onclick="scrollRow(this, 1)">›</button>
+
+
+<div
+
+id="searchRow"
+
+class="movie-track">
+
+
 </div>
 
-<h2>Comedy</h2>
-<div class="movie-row">
-  <button class="scroll-btn left" onclick="scrollRow(this, -1)">‹</button>
-  <div class="movie-track" id="comedyRow"></div>
-  <button class="scroll-btn right" onclick="scrollRow(this, 1)">›</button>
+
 </div>
 
-<h2>Crime</h2>
+
+</section>
+
+
+
+
+
+
+
+<!-- =========================
+ MOVIE ROW FUNCTION
+========================= -->
+
+
+<section>
+
+
+<h2>🔥 Trending</h2>
+
 <div class="movie-row">
-  <button class="scroll-btn left" onclick="scrollRow(this, -1)">‹</button>
-  <div class="movie-track" id="crimeRow"></div>
-  <button class="scroll-btn right" onclick="scrollRow(this, 1)">›</button>
+
+<button class="scroll-btn left"
+onclick="scrollRow(this,-1)">
+‹
+</button>
+
+
+<div id="trendingRow"
+class="movie-track">
 </div>
 
-<h2>Thriller</h2>
-<div class="movie-row">
-  <button class="scroll-btn left" onclick="scrollRow(this, -1)">‹</button>
-  <div class="movie-track" id="thrillerRow"></div>
-  <button class="scroll-btn right" onclick="scrollRow(this, 1)">›</button>
+
+<button class="scroll-btn right"
+onclick="scrollRow(this,1)">
+›
+</button>
+
+
 </div>
 
-  </div>
 
-  <!-- MODAL -->
-  <div id="movieModal" class="modal hidden">
+
+<h2>⭐ Top Rated</h2>
+
+<div class="movie-row">
+
+
+<button class="scroll-btn left"
+onclick="scrollRow(this,-1)">
+‹
+</button>
+
+
+<div id="topRatedRow"
+class="movie-track">
+</div>
+
+
+<button class="scroll-btn right"
+onclick="scrollRow(this,1)">
+›
+</button>
+
+
+</div>
+
+
+
+
+
+<h2>🎬 Now Playing</h2>
+
+
+<div class="movie-row">
+
+
+<button class="scroll-btn left"
+onclick="scrollRow(this,-1)">
+‹
+</button>
+
+
+<div id="nowPlayingRow"
+class="movie-track">
+</div>
+
+
+<button class="scroll-btn right"
+onclick="scrollRow(this,1)">
+›
+</button>
+
+
+</div>
+
+
+
+
+
+<h2>📅 Upcoming</h2>
+
+
+<div class="movie-row">
+
+
+<button class="scroll-btn left"
+onclick="scrollRow(this,-1)">
+‹
+</button>
+
+
+<div id="upcomingRow"
+class="movie-track">
+</div>
+
+
+<button class="scroll-btn right"
+onclick="scrollRow(this,1)">
+›
+</button>
+
+
+</div>
+
+
+
+
+
+<h2>❤️ Popular</h2>
+
+
+<div class="movie-row">
+
+
+<button class="scroll-btn left"
+onclick="scrollRow(this,-1)">
+‹
+</button>
+
+
+<div id="popularRow"
+class="movie-track">
+</div>
+
+
+<button class="scroll-btn right"
+onclick="scrollRow(this,1)">
+›
+</button>
+
+
+</div>
+
+
+
+
+
+<!-- GENRES -->
+
+
+<h2>💥 Action</h2>
+
+<div class="movie-row">
+<div id="actionRow" class="movie-track"></div>
+</div>
+
+
+
+<h2>😂 Comedy</h2>
+
+<div class="movie-row">
+<div id="comedyRow" class="movie-track"></div>
+</div>
+
+
+
+<h2>👮 Crime</h2>
+
+<div class="movie-row">
+<div id="crimeRow" class="movie-track"></div>
+</div>
+
+
+
+<h2>😱 Horror</h2>
+
+<div class="movie-row">
+<div id="horrorRow" class="movie-track"></div>
+</div>
+
+
+
+<h2>🚀 Sci-Fi</h2>
+
+<div class="movie-row">
+<div id="scifiRow" class="movie-track"></div>
+</div>
+
+
+
+<h2>🎭 Drama</h2>
+
+<div class="movie-row">
+<div id="dramaRow" class="movie-track"></div>
+</div>
+
+
+
+</section>
+
+<!-- =========================
+     LOADING SPINNER
+========================= -->
+
+<div id="loadingSpinner" class="spinner hidden">
+
+    <div class="loader"></div>
+
+</div>
+
+
+
+<!-- =========================
+     MOVIE MODAL
+========================= -->
+
+<div id="movieModal" class="modal hidden">
 
     <div class="modal-content">
 
-      <button id="closeModal" class="close-btn">✕</button>
+        <button id="closeModal" class="close-btn">
+            ✖
+        </button>
 
-      <div id="modalBody"></div>
+        <div id="modalBody">
+            <!-- Movie details will load here dynamically -->
+        </div>
 
     </div>
 
-  </div>
+</div>
 
-  <script src="script.js"></script>
+
+
+    </div>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<script src="script.js"></script>
+
 
 </body>
+
+
 </html>
